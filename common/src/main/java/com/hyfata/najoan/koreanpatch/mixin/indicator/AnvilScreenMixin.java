@@ -23,7 +23,7 @@ public class AnvilScreenMixin extends Screen {
     }
 
     @Inject(at = {@At(value = "TAIL")}, method = {"extractBackground"})
-    private void customLabel(GuiGraphicsExtractor guiGraphics, float partialTick, int mouseX, int mouseY, CallbackInfo ci) {
+    private void customLabel(GuiGraphicsExtractor guiGraphics, int mouseX, int mouseY, float partialTick, CallbackInfo ci) {
         float x = name.getX() + name.getWidth() - IndicatorHandler.getIndicatorWidth();
         float y = name.getY() - IndicatorHandler.getIndicatorHeight() - 6;
 
