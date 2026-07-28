@@ -3,7 +3,7 @@ package com.hyfata.najoan.koreanpatch.mixin.mods.commandblockide.indicator;
 import arm32x.minecraft.commandblockide.client.gui.editor.CommandBlockEditor;
 import arm32x.minecraft.commandblockide.client.gui.editor.CommandEditor;
 import net.minecraft.client.gui.Font;
-import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.screens.Screen;
 import org.spongepowered.asm.mixin.Final;
@@ -24,7 +24,7 @@ public abstract class CommandBlockEditorMixin extends CommandEditor {
     private EditBox lastOutputField;
 
     @Inject(method = "renderCommandField", at = @At("HEAD"))
-    private void renderCommandField(GuiGraphics context, int mouseX, int mouseY, float delta, CallbackInfo ci) {
+    private void renderCommandField(GuiGraphicsExtractor context, int mouseX, int mouseY, float delta, CallbackInfo ci) {
         lastOutputField.setX(this.commandField.getX());
         lastOutputField.setWidth(this.commandField.getWidth());
     }

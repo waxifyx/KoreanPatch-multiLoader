@@ -99,9 +99,13 @@ public class WrapperEditBox implements InterfaceIMEWrapper {
                 Character.charCount(chr) == 1;
     }
 
+    private int getCharacterModifiers(char chr) {
+        return Character.isUpperCase(chr) ? 1 : 0;
+    }
+
     public boolean charTyped(CharacterEvent charEvent, boolean isEditable, Callable<Boolean> callable) {
         char chr = (char) charEvent.codepoint();
-        int modifiers = charEvent.modifiers();
+        int modifiers = getCharacterModifiers(chr);
 
         if (!validateCharTyped(charEvent, isEditable)) {
             return returnCallable(callable);
@@ -129,7 +133,7 @@ public class WrapperEditBox implements InterfaceIMEWrapper {
 
     public void charTyped(CharacterEvent charEvent, CallbackInfoReturnable<Boolean> cir, boolean isEditable) {
         char chr = (char) charEvent.codepoint();
-        int modifiers = charEvent.modifiers();
+        int modifiers = getCharacterModifiers(chr);
 
         if (!validateCharTyped(charEvent, isEditable)) {
             return;

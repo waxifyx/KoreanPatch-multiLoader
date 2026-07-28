@@ -62,7 +62,7 @@ public class WrapperREITextField implements InterfaceIMEWrapper {
 
     public void typedTextField(CharacterEvent charEvent, CallbackInfoReturnable<Boolean> cir) {
         char chr = (char) charEvent.codepoint();
-        int modifiers = charEvent.modifiers();
+        int modifiers = Character.isUpperCase(chr) ? 1 : 0;
 
         int qwertyIndex = KeyboardLayout.INSTANCE.getQwertyIndexCodePoint(chr);
         if (qwertyIndex == -1) {

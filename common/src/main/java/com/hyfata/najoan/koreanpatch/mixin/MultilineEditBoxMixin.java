@@ -3,6 +3,7 @@ package com.hyfata.najoan.koreanpatch.mixin;
 import com.hyfata.najoan.koreanpatch.mixin.accessor.MultilineTextFieldAccessor;
 import com.hyfata.najoan.koreanpatch.wrapper.WrapperMultilineTextField;
 import net.minecraft.client.gui.Font;
+import net.minecraft.client.gui.components.AbstractScrollArea;
 import net.minecraft.client.gui.components.AbstractTextAreaWidget;
 import net.minecraft.client.gui.components.MultiLineEditBox;
 import net.minecraft.client.gui.components.MultilineTextField;
@@ -28,7 +29,7 @@ public abstract class MultilineEditBoxMixin extends AbstractTextAreaWidget {
     private WrapperMultilineTextField koreanPatch$wrapper;
 
     public MultilineEditBoxMixin(int x, int y, int width, int height, Component message) {
-        super(x, y, width, height, message);
+        super(x, y, width, height, message, AbstractScrollArea.defaultSettings((int) (9.0 / 2.0)));
     }
 
     @Inject(at = {@At(value = "TAIL")}, method = {"<init>"})

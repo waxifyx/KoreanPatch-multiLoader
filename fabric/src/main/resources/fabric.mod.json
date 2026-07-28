@@ -26,18 +26,13 @@
         ]
     },
     "mixins": [
-        "koreanpatch.mixins.json",
-        "koreanpatch.fabric.mixins.json"
+        "koreanpatch.mixins.json"
     ],
     "depends": {
         "fabricloader": ">=${fabric_loader_version}",
         "minecraft": "${fabric_version_range}",
         "java": ">=${java_version}",
-        "fabric-api-base": "*",
-        "fabric-key-binding-api-v1": "*",
-        "fabric-lifecycle-events-v1": "*",
-        "fabric-resource-loader-v0": "*",
-        "fabric-screen-api-v1": "*"
+        "fabric-api": "*"
     },
     "suggests": {
         "another-mod": "*"
