@@ -147,6 +147,9 @@ public class EventListener {
     }
 
     private static boolean hasTextField(Screen screen) {
+        if (TextFieldDetector.containsTextWidget(screen)) {
+            return true;
+        }
         boolean hasTextFieldWidget = ReflectionFieldChecker.hasFieldOfType(screen, EditBox.class);
         boolean hasMultilineEditBox = ReflectionFieldChecker.hasFieldOfType(screen, MultiLineEditBox.class);
         boolean hasSelectionManager = ReflectionFieldChecker.hasFieldOfType(screen, TextFieldHelper.class);
